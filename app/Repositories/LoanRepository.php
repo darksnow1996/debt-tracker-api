@@ -15,6 +15,12 @@ class LoanRepository extends BaseRepository{
         return Loan::class;
     }
 
+
+    public function getLoanPayments(){
+        $user = auth()->user();
+        $loans = $user->loans()->where();
+    }
+
     // public function getPredictions($request=null){
     //     $limit = $request->limit ? $request->limit:10;
     //     $predictions = $this->model

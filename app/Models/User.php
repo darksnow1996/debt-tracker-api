@@ -15,6 +15,8 @@ class User extends Authenticatable
 
 {
     use HasFactory, Notifiable, HasApiTokens;
+    use \Staudenmeir\EloquentHasManyDeep\HasRelationships;
+    
 
     /**
      * The attributes that are mass assignable.
@@ -70,6 +72,10 @@ class User extends Authenticatable
 
     public function loans(){
         return $this->hasManyThrough(Loan::class, Loanee::class);
+    }
+
+    public function loanpayments(){
+        return $this->hasManyDeep(LoanPayment::class, [Loanee::class,Loan::class]);
     }
 
     

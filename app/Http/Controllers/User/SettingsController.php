@@ -56,8 +56,8 @@ class SettingsController extends Controller
 
         $user->firstname =  $request->firstname;
         $user->lastname = $request->lastname;
-        $user->profile_picture_path = $request->profile_photo ? $request->profile_photo: $user->profile_picture_path;
-        $user->phone = $request->phone ? $request->phone: $user->phone;
+       // $user->profile_picture_path = $request->profile_photo ? $request->profile_photo: $user->profile_picture_path;
+       // $user->phone = $request->phone ? $request->phone: $user->phone;
 
         $user->save();
 
@@ -68,7 +68,7 @@ class SettingsController extends Controller
         // ]);
         
         return response([
-            'message' => "profile updated successfully",
+            'message' => "Profile updated successfully",
             'data' => new UserResource($user)
         ],Response::HTTP_OK);
         }
@@ -106,7 +106,7 @@ class SettingsController extends Controller
             ]);
             
             return response([
-                'message' => "password updated successfully",
+                'message' => "Password updated successfully",
                 
             ],Response::HTTP_OK);
             }

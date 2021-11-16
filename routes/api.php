@@ -9,6 +9,7 @@ use App\Http\Controllers\User\SettingsController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\BookmarkController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FixtureController;
 use App\Http\Controllers\LeagueController;
 use App\Http\Controllers\LoanController;
@@ -92,6 +93,9 @@ Route::group(['middleware'=> ['auth:sanctum',]], function(){
      Route::get('loans/{id}',[LoanController::class, 'getLoan']);
      Route::post('loans',[LoanController::class, 'createLoan']);
      Route::post('loans/{id}',[LoanController::class, 'updateLoan']);
+
+
+     Route::get('dashboard',[DashboardController::class, 'getDashboardData']);
 
 
 
